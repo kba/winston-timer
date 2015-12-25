@@ -1,6 +1,6 @@
 'use strict';
 var winston = require('winston');
-require('../lib')(winston)
+require('..')(winston)
 winston.level = 'silly'
 
 winston.start_log('test-timer-1', 'debug');

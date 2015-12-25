@@ -3,7 +3,7 @@ PKGNAME = $(shell grep name package.json |/bin/grep -o '[^"]*",'|/bin/grep -o '[
 
 PANDOC = pandoc -s -t man 
 NPM = npm
-COFFEE = coffee -c
+COFFEE = coffee -c -p -b
 
 MKDIR = mkdir -p
 MKTEMP = mktemp -d --tmpdir "make-$(PKGNAME)-XXXXXXX"
@@ -11,11 +11,10 @@ RM = rm -rf
 LN = ln -fsrv
 CP = cp -r
 
-BIN_TARGETS = $(shell find src/bin -type f -name "*.*" |sed 's,src/,,'|sed 's,\.[^\.]\+$$,,')
-MAN_TARGETS = $(shell find src/man -type f -name "*.md"|sed 's,src/,,'|sed 's,\.md$$,.gz,')
-COFFEE_TARGETS = $(shell find src/lib -type f -name "*.coffee"|sed 's,src/,,'|sed 's,\.coffee,\.js,')
+TARGET = index.js
 
-lib: ${COFFEE_TARGETS}
+$(TARGET): src/lib/index.coffee
+	$(COFFEE) $< > $(TARGET)
 
-lib/%.js: src/lib/%.coffee
-	$(COFFEE) -o lib $<
+clean:
+	$(RM) $(TARGET)
