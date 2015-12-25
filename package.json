@@ -1,21 +1,22 @@
 {
-  "name": "winston-profiling",
+  "name": "winston-timer",
   "version": "0.0.1",
-  "description": "Add simple profiling (timing) capabilities to winston",
+  "description": "Add simple time measurement to winston",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "make"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kba/winston-profiling.git"
+    "url": "git+https://github.com/kba/winston-timer.git"
   },
   "author": "kba",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kba/winston-profiling/issues"
+    "url": "https://github.com/kba/winston-timer/issues"
   },
-  "homepage": "https://github.com/kba/winston-profiling#readme",
+  "homepage": "https://github.com/kba/winston-timer#readme",
   "dependencies": {
     "chalk": "^1.1.1"
   },
