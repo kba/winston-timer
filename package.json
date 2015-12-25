@@ -1,6 +1,6 @@
 {
   "name": "winston-timer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Add simple time measurement to winston",
   "main": "index.js",
   "scripts": {
