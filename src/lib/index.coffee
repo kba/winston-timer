@@ -14,11 +14,19 @@ DEFAULT_CONFIG =
 	start_suffix: '"'
 	stop_suffix: '" in'
 
-module.exports = (logger, config) ->
-
-	config or= DEFAULT_CONFIG
-
-	logger._profiling_timers = {}
+module.exports = (logger, configIn) ->
+ config = {}
+ if configIn?
+   for own key, value of DEFAULT_CONFIG
+     if configIn[key]?
+       config[key] = configIn[key]
+     else
+       config[key] = DEFAULT_CONFIG[key]
+ else
+   config = DEFAULT_CONFIG
+   
+ logger._profiling_timers = {}
+  
 	logger.start = (name) ->
 		if logger._profiling_timers[name]
 			throw new Error('Timer already started: \'' + name + '\'')
