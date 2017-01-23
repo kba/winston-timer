@@ -36,7 +36,7 @@ You can also pass a stand-alone `Winston.Logger` object:
 var winston = require('winston');
 var log = new Winston.Logger(/* ... */);
 require('winston-timer')(logger, {
-    "useColors": false
+    "use_colors": false
 });
 ```
 
